@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace Stingray
+namespace Stingray.ViewModels
 {
-    public class CarListViewModel : BindableObject
+    public class CarListViewModel : BaseViewModel
     {
         private List<Car> _cars = new List<Car>();
         public List<Car> Cars
@@ -29,15 +26,12 @@ namespace Stingray
             Cars = new List<Car>();
         }
 
-        bool _isBusy;
-        public bool IsBusy
+        public async Task LoadCarsAsync()
         {
-            get
-            { return _isBusy; }
-            set
+            using (new Busy(this))
             {
-                _isBusy = value;
-                OnPropertyChanged();
+                var service = new CarService();
+                Cars = await service.LoadAllCars();
             }
         }
 
@@ -50,14 +44,6 @@ namespace Stingray
                     await LoadCarsAsync();
                 });
             }
-        }
-
-        public async Task LoadCarsAsync()
-        {
-            IsBusy = true;
-            var service = new CarService();
-            Cars = await service.LoadAllCars();
-            IsBusy = false;
         }
      }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Microsoft.WindowsAzure.MobileServices;
@@ -21,7 +18,7 @@ namespace Stingray
         {
             var table = _client.GetTable<Car>();
             await table.InsertAsync(car);
-            await Task.Delay(3000);
+            // if you want to see the spinner: await Task.Delay(3000);
         }
 
         public async Task<List<Car>> LoadAllCars()

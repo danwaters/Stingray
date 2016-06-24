@@ -36,14 +36,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="Car.cs" />
-    <Compile Include="CarList.xaml.cs">
+    <Compile Include="Models\Car.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="Views\CarList.xaml.cs">
       <DependentUpon>CarList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CarListViewModel.cs" />
-    <Compile Include="CarService.cs" />
-    <Compile Include="CarViewModel.cs" />
-    <Compile Include="CreateCarPage.xaml.cs">
+    <Compile Include="ViewModels\CarListViewModel.cs" />
+    <Compile Include="Services\CarService.cs" />
+    <Compile Include="ViewModels\CarViewModel.cs" />
+    <Compile Include="Views\CreateCarPage.xaml.cs">
       <DependentUpon>CreateCarPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,17 +81,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CreateCarPage.xaml">
+    <EmbeddedResource Include="Views\CreateCarPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CarList.xaml">
+    <EmbeddedResource Include="Views\CarList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
