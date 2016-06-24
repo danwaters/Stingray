@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Stingray.CreateCarPage">
+  <StackLayout>
+
+    <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+    
+    <Entry x:Name="make" Placeholder="Make" Text="{Binding Car.Make}" />
+    <Entry x:Name="model" Placeholder="Model" Text="{Binding Car.Model}" />
+    <Entry x:Name="year" Placeholder="Year" Text="{Binding Car.Year}" />
+    <Entry x:Name="color" Placeholder="Color" Text="{Binding Car.Color}" />
+    <Entry x:Name="trim" Placeholder="Trim" Text="{Binding Car.Trim}" />
+
+    <Button x:Name="submit" Text="Add Car" Command="{Binding SubmitCarCommand}" />
+
+  </StackLayout>
+</ContentPage>
